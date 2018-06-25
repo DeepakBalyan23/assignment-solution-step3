@@ -79,9 +79,9 @@ public class DataMungerTest {
 
 	@Test(expected = FileNotFoundException.class)
 	public void testFileNotFound() throws IOException {
-		CsvQueryProcessor reader1 = new CsvQueryProcessor("data/ipl2.csv");
+		CsvQueryProcessor reader = new CsvQueryProcessor("data/ipl2.csv");
 		@SuppressWarnings("unused")
-		Header result = reader1.getHeader();
+		Header result = reader.getHeader();
 
 	}
 
