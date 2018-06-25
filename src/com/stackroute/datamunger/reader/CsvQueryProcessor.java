@@ -68,10 +68,10 @@ public class CsvQueryProcessor extends QueryProcessingEngine {
 		DataTypeDefinitions dataTypeDefinitions = new DataTypeDefinitions();
 		FileReader fileReader = new FileReader(fileName);
 		BufferedReader bufferedReader = new BufferedReader(fileReader);
-		int length = bufferedReader.readLine().split(",").length;
-		String[] fields = bufferedReader.readLine().split(",", length);
+		int headerLength = bufferedReader.readLine().split(",").length;
+		String[] fields = bufferedReader.readLine().split(",", headerLength);
 		bufferedReader.close();
-		String[] dataTypes = new String[length];
+		String[] dataTypes = new String[headerLength];
 		int index=0;
 		for(String field: fields) {
 			try {
