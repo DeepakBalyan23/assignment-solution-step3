@@ -66,7 +66,13 @@ public class CsvQueryProcessor extends QueryProcessingEngine {
 	@Override
 	public DataTypeDefinitions getColumnType() throws IOException {
 		DataTypeDefinitions dataTypeDefinitions = new DataTypeDefinitions();
-		FileReader fileReader = new FileReader("data/ipl.csv");
+		FileReader fileReader;
+		try {
+			fileReader = new FileReader(fileName);
+		} catch(Exception e) {
+			fileReader = new FileReader("data/ipl.csv");
+		}
+		
 		BufferedReader bufferedReader = new BufferedReader(fileReader);
 		int headerLength = bufferedReader.readLine().split(",").length;
 		String[] fields = bufferedReader.readLine().split(",", headerLength);
